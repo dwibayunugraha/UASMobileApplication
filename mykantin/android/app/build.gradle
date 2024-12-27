@@ -1,14 +1,15 @@
-plugins {
-    id "com.android.application"
-    id "kotlin-android"
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id "dev.flutter.flutter-gradle-plugin"
-}
+    apply plugin: 'com.android.application'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'com.google.gms.google-services'  // This is needed for Firebase
 
 android {
     namespace = "com.example.mykantin"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    
+    // Tentukan nilai SDK secara langsung jika tidak ada variabel yang diatur
+    compileSdkVersion 33  // Gantilah dengan versi yang sesuai (misalnya, 33)
+
+    // Tentukan NDK version jika diperlukan
+    ndkVersion "23.1.7779620"  // Gantilah dengan versi NDK yang sesuai
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -20,25 +21,25 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.mykantin"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        
+        // Tentukan minSdkVersion dan targetSdkVersion secara langsung
+        minSdkVersion 21  // Gantilah dengan versi minimum yang sesuai
+        targetSdkVersion 33  // Gantilah dengan versi target SDK yang sesuai
+
+        versionCode flutter.versionCode
+        versionName flutter.versionName
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.debug
         }
     }
 }
 
-flutter {
-    source = "../.."
+dependencies {
+    implementation 'com.google.firebase:firebase-analytics:21.0.0'  // Firebase Analytics
+    implementation 'com.google.firebase:firebase-database:20.0.3'   // Firebase Realtime Database
+    // Tambahkan dependensi Firebase lainnya sesuai kebutuhan
 }
