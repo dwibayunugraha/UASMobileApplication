@@ -23,10 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MyKantin',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+    var themeData = ThemeData(
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           centerTitle: true,
@@ -34,7 +31,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
         ),
-      ),
+      );
+    return MaterialApp(
+      title: 'MyKantin',
+      theme: themeData,
       home: const MyHomePage(),
     );
   }
@@ -252,7 +252,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red[700],
+                  backgroundColor:const Color(0xFFDC793B),
                   foregroundColor: Colors.white,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
@@ -300,6 +300,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
 
     return Column(
       children: [
+        const SizedBox(height: 5),
         // Category buttons
         Container(
           height: 60,
@@ -319,11 +320,11 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _selectedCategory == index
-                        ? Colors.red[700]
+                        ? const Color(0xFFDC793B)
                         : Colors.grey[200],
                     foregroundColor: _selectedCategory == index
                         ? Colors.white
-                        : Colors.black,
+                        : Colors.grey[700],
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -343,7 +344,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
             padding: const EdgeInsets.all(16),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 0.8,
+              childAspectRatio: 3 / 4,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
             ),
@@ -364,7 +365,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
                           top: Radius.circular(12),
                         ),
                         child: AspectRatio(
-                          aspectRatio: 1.2,
+                          aspectRatio: 1.5,
                           child: Image.asset(
                             filteredItems[index]['image'],
                             fit: BoxFit.cover,
@@ -403,7 +404,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
                                 ),
                                 FloatingActionButton.small(
                                   onPressed: () => _addToCart(filteredItems[index]),
-                                  backgroundColor: Colors.red[700],
+                                  backgroundColor:  const Color(0xFFDC793B),
                                   child: const Icon(Icons.add, color: Colors.white),
                                 ),
                               ],
@@ -452,12 +453,27 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
                   _selectedIndex = 0;
                 });
               },
-              child: Text(
-                'MyKantin',
-                style: TextStyle(
-                  color: Colors.red[700],
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min, // Agar ukuran kolom menyesuaikan kontennya
+                children: [
+                  const Text(
+                    'MyKantin',
+                    style: TextStyle(
+                      color: Color(0xFFDC793B),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24, 
+                    ),
+                  ),
+                  const SizedBox(height: 2), 
+                  Text(
+                    'Teman Setia Perut Lapar!',
+                    style: TextStyle(
+                      color: Colors.grey[700], 
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ),
             const Spacer(),
@@ -482,7 +498,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
                     child: Container(
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: const Color(0xFFDC793B),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       constraints: const BoxConstraints(
@@ -526,7 +542,7 @@ void _showItemDetail(BuildContext context, Map<String, dynamic> item) {
             label: 'Profile',
           ),
         ],
-        selectedItemColor: Colors.red[700],
+        selectedItemColor:  const Color(0xFFDC793B),
       ),
     );
   }
@@ -737,7 +753,7 @@ class _CartPageState extends State<CartPage> {
                           Navigator.pop(context);
                         },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[700],
+                    backgroundColor: const Color(0xFFDC793B),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
