@@ -1,0 +1,1 @@
+ C:\\Users\\Almaids\\Downloads\\UASMobileApplication\\UASMobileApplication\\mykantin\\.dart_tool\\flutter_build\\56b2788e9dfca82060a633e569192079\\native_assets.yaml: 
