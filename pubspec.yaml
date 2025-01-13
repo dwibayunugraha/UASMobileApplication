@@ -1,0 +1,53 @@
+name: kantinku
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+2
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.10.0
+  firebase_auth: ^5.4.0
+  firebase_database: ^11.3.0
+  logger: ^1.0.0
+  cloudinary_public: ^0.21.0
+  image_picker: ^1.0.4
+  intl: ^0.18.0
+  url_launcher: ^6.1.10
+  http: ^1.2.1
+  lottie: ^2.2.0
+  just_audio: ^0.9.36
+  audioplayers: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.0.3
+
+flutter_icons:
+  android: true  # Diubah ke true, bukan "launcher_icon"
+  ios: true
+  image_path: "assets/icon/logokantin.png"
+  adaptive_icon_background: "#DC793B"
+  adaptive_icon_foreground: "assets/icon/logokantin.png"
+
+flutter_native_splash:
+  color: "#ffffff"  # Warna latar belakang splash screen
+  image: "assets/icon/logokantin.png"  # Path gambar logo
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/icon/
+    - assets/sounds/
